@@ -52,39 +52,39 @@ window.addEventListener('load', (event) => {
       
       card.classList.add('turned');
       cardsTurned.push(card);
-
-      if (cardsTurned.length === 3) {
-        if ( !cardsTurned[0].classList.contains('blocked') ) {
-          cardsTurned[0].setAttribute('class', 'card');
-          cardsTurned[1].setAttribute('class', 'card');
-        }
-        cardsTurned.splice(0,2);
-      } else if (cardsTurned.length === 2) { 
+      
+      if (cardsTurned.length === 2) { 
 
         const isPaired = memoryGame.checkIfPair(cardsTurned[0].dataset.cardName, cardsTurned[1].dataset.cardName);
 
-        if ( isPaired ) {
+        if ( !isPaired ) {
+          
+          setTimeout(() => {
+            cardsTurned[0].classList.toggle('turned');
+            cardsTurned[1].setAttribute('class', 'card');
+            cardsTurned.splice(0,2);
+          }, 1000)
+
+
+        } else {
+
           console.log('isPaired', isPaired);
           cardsTurned[0].classList.toggle('blocked');
           cardsTurned[1].classList.toggle('blocked');
-        }
 
-        console.log('pairs guessed', memoryGame.pairsGuesses)
+        }
 
         if (memoryGame.pairsClicked > 0) { document.querySelector('#pairs-clicked').innerHTML = memoryGame.pairsClicked; }
         if (memoryGame.pairsGuesses > 0) { document.querySelector('#pairs-guessed').innerHTML = memoryGame.pairsGuesses; }
       
-      }
+      } 
 
       if ( memoryGame.checkIfFinished() ) {
         document.querySelector('#memory-board').innerHTML = '<h2>You won!</h2><p style="text-align:center;">Reload to start again</p>'
       }
 
-      console.log(card.dataset.cardName);
-      console.log(`Card clicked: ${card}`);
-
-
-
+      // console.log(card.dataset.cardName);
+      // console.log(`Card clicked: ${card}`);
     });
   });
   
