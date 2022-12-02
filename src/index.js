@@ -54,25 +54,29 @@ window.addEventListener('load', (event) => {
       cardsTurned.push(card);
       
       if (cardsTurned.length === 2) { 
+        
+        const cardOne = cardsTurned[0]
+        const cardTwo = cardsTurned[1]
 
-        const isPaired = memoryGame.checkIfPair(cardsTurned[0].dataset.cardName, cardsTurned[1].dataset.cardName);
+        const isPaired = memoryGame.checkIfPair(cardOne.dataset.cardName, cardTwo.dataset.cardName);
 
         if ( !isPaired ) {
-          
+
           setTimeout(() => {
-            cardsTurned[0].classList.toggle('turned');
-            cardsTurned[1].setAttribute('class', 'card');
-            cardsTurned.splice(0,2);
-          }, 1000)
+            cardOne.classList.toggle('turned');
+            cardTwo.setAttribute('class', 'card');
+          }, 500)
 
 
         } else {
 
           console.log('isPaired', isPaired);
-          cardsTurned[0].classList.toggle('blocked');
-          cardsTurned[1].classList.toggle('blocked');
+          cardOne.classList.toggle('blocked');
+          cardTwo.classList.toggle('blocked');
 
         }
+
+        cardsTurned.splice(0,2);
 
         if (memoryGame.pairsClicked > 0) { document.querySelector('#pairs-clicked').innerHTML = memoryGame.pairsClicked; }
         if (memoryGame.pairsGuesses > 0) { document.querySelector('#pairs-guessed').innerHTML = memoryGame.pairsGuesses; }
