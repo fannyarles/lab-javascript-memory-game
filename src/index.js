@@ -84,7 +84,10 @@ window.addEventListener('load', (event) => {
       } 
 
       if ( memoryGame.checkIfFinished() ) {
-        document.querySelector('#memory-board').innerHTML = '<h2>You won!</h2><p style="text-align:center;">Reload to start again</p>'
+
+        setTimeout(() => {
+          document.querySelector('#memory-board').innerHTML = '<h2>You won!</h2><p style="text-align:center;">Reload to start again</p>'
+        }, 1000)
       }
 
       // console.log(card.dataset.cardName);

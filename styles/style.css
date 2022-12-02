@@ -1,19 +1,26 @@
 body {
   margin: 0;
-
-  background: url('../img/background.jpg') no-repeat;
-  background-size: cover;
+  background: url('../img/background2.jpg') repeat-y;
+  background-size: 100vw;
+  background-position: top right;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+main {
+  display:flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 70%
+}
+
 #memory-board {
-  background: #dddddd;
+  background-color: rgba(255, 255, 255, 0.7);
   width: 820px;
   height: 540px;
   padding: 70px;
   margin: 0px auto;
-  border-radius: 84px;
-  box-shadow: inset 0px 0px 20px -6px #615961;
+  border-radius: 4px;
+  /*box-shadow: inset 0px 0px 20px -6px #615961;*/
 }
 
 .card {
@@ -45,7 +52,7 @@ body {
 }
 
 .card .back {
-  background-color: #456783;
+  background-color: coral;
 }
 
 .card .front {
@@ -57,26 +64,26 @@ body {
 }
 
 #score {
-  background-color: rgba(215, 44, 44, 0.8);
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-width: 200px;
+  border-radius: 4px;
   font-size: 30px;
   font-family: Arial;
-  width: 200px;
-  padding: 20px;
-  margin-left: 75%;
+  padding: 40px;
 }
 
 h1 {
-  color: rgba(215, 40, 40, 0.9);
+  color: white;
+  margin: 70px auto;
   font-weight: bolder;
   font-size: 67px;
   text-align: center;
-  text-shadow: 0px 0px 20px #969696;
+  text-shadow: 0px 0px 20px #000;
 }
 
 h2 {
   margin-top: 0;
-  color: #456783;
+  color: coral;
   font-weight: bolder;
   font-size: 35px;
   text-align: center;
